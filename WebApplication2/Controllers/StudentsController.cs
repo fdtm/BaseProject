@@ -92,7 +92,7 @@ namespace WebApplication2.Controllers
 
             if (ModelState.IsValid)
             {
-                var result = await _studentService.UpdateAsync(id, student);
+                var result = await _studentService.UpdateAsync(student);
                 if(!result.Success)
                 {
                     ModelState.AddModelError("", result.Message);

@@ -29,7 +29,7 @@ namespace WebApplication2.Services
             }
             catch (Exception ex)
             {
-                return new Response<TEntity>($"خطا :  {ex.Message}");
+                return new Response<TEntity>($"Error : {ex.Message}");
             }
         }
 
@@ -49,7 +49,7 @@ namespace WebApplication2.Services
             {
                 var entity = await _repository.GetAsync(id);
                 if (entity == null)
-                    return new Response<TEntity>("یافت نشد!");
+                    return new Response<TEntity>("Not Found!");
 
                 _repository.Remove(entity);
                 await _unitOfWork.CompleteAsync();
@@ -57,11 +57,11 @@ namespace WebApplication2.Services
             }
             catch (Exception ex)
             {
-                return new Response<TEntity>($"خطا :  {ex.Message}");
+                return new Response<TEntity>($"Error : {ex.Message}");
             }
         }
 
-        public async Task<Response<TEntity>> UpdateAsync(int id, TEntity entity)
+        public async Task<Response<TEntity>> UpdateAsync(TEntity entity)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace WebApplication2.Services
             }
             catch (Exception ex)
             {
-                return new Response<TEntity>($"خطا :  {ex.Message}");
+                return new Response<TEntity>($"Error : {ex.Message}");
             }
         }
     }

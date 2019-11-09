@@ -12,7 +12,7 @@ namespace WebApplication2.Core.Services
 
         Task<Response<TEntity>> AddAsync(TEntity entity);
 
-        Task<Response<TEntity>> UpdateAsync(int id, TEntity entity);
+        Task<Response<TEntity>> UpdateAsync(TEntity entity);
 
         Task<Response<TEntity>> RemoveAsync(int id);
     }
